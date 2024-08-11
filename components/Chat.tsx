@@ -112,6 +112,13 @@ export default function Chat({ theme, toggleTheme }: ChatProps) {
 				<Button
 					fullWidth
 					variant="contained"
+					sx={{
+						borderRadius: "50px",
+						bgcolor: "green",
+						":hover": {
+							bgcolor: "#66bb6a", // Set the hover color to green
+						},
+					}}
 					onClick={handleSend}
 					disabled={!message} // Disable if message is empty
 					className={`mb-4 ${
