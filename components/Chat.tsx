@@ -1,11 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import {
+    Button,
+    TextField,
+    List,
+    ListItem,
+    ListItemText,
+    Container,
+    Paper,
+    Typography
+} from '@mui/material';
 
-export default function Chat() {
+interface ChatProps {
+    theme: 'light' | 'dark';
+    toggleTheme: () => void;
+}
+
+export default function Chat({ theme, toggleTheme }: ChatProps) {
     const [message, setMessage] = useState('');
     const [response, setResponse] = useState('');
     const [conversationHistory, setConversationHistory] = useState('');
+
+    useEffect(() => {
+        document.body.classList.remove('light', 'dark');
+        document.body.classList.add(theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     const handleSend = async () => {
         try {
@@ -38,25 +59,43 @@ export default function Chat() {
     };
 
     return (
-        <div className="flex flex-col h-screen p-4 bg-[#0F0F0F]">
-            <div className="flex-1 overflow-y-auto p-4 bg-[#1E1E1E] text-white rounded mb-4">
-                {conversationHistory.split('\n').map((msg, idx) => (
-                    <p key={idx}>{msg}</p>
-                ))}
-            </div>
-            <textarea
-                className="w-full h-48 bg-[#03040B] text-white p-4 mb-4 rounded resize-none"
+        <Container className="h-screen p-4" maxWidth="md">
+            <Paper 
+                elevation={3} 
+                className={`flex-1 p-4 mb-4 overflow-y-auto ${theme === 'dark' ? 'bg-[#313131]' : 'bg-[#ffffff]'}`}
+                style={{ maxHeight: '70vh' }}
+            >
+                <List>
+                    {conversationHistory.split('\n').map((msg, idx) => (
+                        <ListItem key={idx}>
+                            <ListItemText 
+                                primary={<Typography variant="body1" style={{ color: theme === 'dark' ? '#fff' : '#000' }}>{msg}</Typography>} 
+                            />
+                        </ListItem>
+                    ))}
+                </List>
+            </Paper>
+            <TextField
+                fullWidth
+                multiline
+                minRows={4}
+                variant="outlined"
                 placeholder="Type your message here..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                className={`mb-4 ${theme === 'dark' ? 'bg-[#313131]' : 'bg-[#fff]'}`}
+                InputProps={{ style: { color: theme === 'dark' ? '#fff' : '#000' } }}
+                InputLabelProps={{ style: { color: theme === 'dark' ? '#aaa' : '#555' } }}
             />
-            <button
-                className="bg-[#2B2D42] text-white w-full py-2 rounded mb-4"
+            <Button
+                fullWidth
+                variant="contained"
                 onClick={handleSend}
                 disabled={!message} // Disable if message is empty
+                className={`mb-4 ${theme === 'dark' ? 'bg-[#516bff]' : 'bg-[#516bff]'}`}
             >
                 Send
-            </button>
-        </div>
+            </Button>
+        </Container>
     );
 }
