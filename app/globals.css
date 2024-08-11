@@ -5,15 +5,15 @@
 /* styles/globals.css */
 
 body {
-  transition: background-color 0.3s ease, color 0.3s ease;
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.light {
-  background-color: #f5f5f5;
-  color: #333;
+	background-color: #faf9f6;
+	color: #333;
 }
 
 body.dark {
-  background-color: #121212;
-  color: #e0e0e0;
+	background-color: #121212;
+	color: #e0e0e0;
 }
