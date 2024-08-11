@@ -68,7 +68,10 @@ export default function Chat({ theme, toggleTheme }: ChatProps) {
 				className={`flex-1 p-4 mb-4 overflow-y-auto ${
 					theme === "dark" ? "bg-[#152238]" : "bg-[#ffffff]" //dark blue bg
 				}`}
-				style={{ maxHeight: "70vh" }}
+				style={{
+					maxHeight: "70vh",
+					borderRadius: "12px",
+				}}
 			>
 				<List>
 					{conversationHistory.split("\n").map((msg, idx) => (
