@@ -66,7 +66,7 @@ export default function Chat({ theme, toggleTheme }: ChatProps) {
 			<Paper
 				elevation={3}
 				className={`flex-1 p-4 mb-4 overflow-y-auto ${
-					theme === "dark" ? "bg-[#313131]" : "bg-[#ffffff]"
+					theme === "dark" ? "bg-[#152238]" : "bg-[#ffffff]" //dark blue bg
 				}`}
 				style={{ maxHeight: "70vh" }}
 			>
@@ -100,10 +100,16 @@ export default function Chat({ theme, toggleTheme }: ChatProps) {
 					multiline
 					minRows={4}
 					variant="outlined"
+					sx={{
+						borderRadius: "12px",
+						"& .MuiOutlinedInput-root": {
+							borderRadius: "12px",
+						},
+					}}
 					placeholder="Type your message here..."
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
-					className={`mb-4 ${theme === "dark" ? "bg-[#313131]" : "bg-[#fff]"}`}
+					className={`mb-4 ${theme === "dark" ? "bg-[#152238]" : "bg-[#fff]"}`}
 					InputProps={{ style: { color: theme === "dark" ? "#fff" : "#000" } }}
 					InputLabelProps={{
 						style: { color: theme === "dark" ? "#aaa" : "#555" },
