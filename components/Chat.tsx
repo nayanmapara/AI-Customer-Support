@@ -62,11 +62,18 @@ export default function Chat({ theme, toggleTheme }: ChatProps) {
 	};
 
 	return (
-		<Container className="h-screen p-4" maxWidth="md">
+		<Container
+			className="h-screen p-4"
+			maxWidth="md"
+			sx={{
+				display: "flex",
+				flexDirection: "column",
+			}}
+		>
 			<Paper
 				elevation={3}
 				className={`flex-1 p-4 mb-4 overflow-y-auto ${
-					theme === "dark" ? "bg-[#152238]" : "bg-[#ffffff]" //dark blue bg
+					theme === "dark" ? "bg-[#152238]" : "bg-[#ffffff]"
 				}`}
 				style={{
 					maxHeight: "70vh",
