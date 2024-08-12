@@ -21,27 +21,31 @@ body.dark {
 }
 
 .layout-container {
-display: flex;
-justify-content: flex-start;
-align-items: flex-start;
-height: 100vh;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	height: 100vh;
 }
 
 .content {
-flex: 1;
-padding: 20px;
+
+	flex: 1;
+	padding: 20px;
 }
 
 .image-container {
-max-width: 40%; 
-display: flex;
-justify-content: flex-end;
-align-items: flex-start;
-padding: 20px; 
+
+	max-width: 40%; 
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	padding: 20px; 
 }
 
 .image-container img {
-max-width: 100%;
-height: auto; 
+	
+	max-width: 100%;
+	height: auto; 
 }
 
