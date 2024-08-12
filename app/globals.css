@@ -5,15 +5,43 @@
 /* styles/globals.css */
 
 body {
-	transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.light {
-	background-color: #faf9f6;
-	color: #333;
+
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(222,208,228,1) 100%);
+    color: #333;
 }
 
 body.dark {
-	background-color: #1c2e4a;
-	color: #e0e0e0;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(62,10,89,1) 100%);
+    color: white
+    
 }
+
+.layout-container {
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+height: 100vh;
+}
+
+.content {
+flex: 1;
+padding: 20px;
+}
+
+.image-container {
+max-width: 40%; 
+display: flex;
+justify-content: flex-end;
+align-items: flex-start;
+padding: 20px; 
+}
+
+.image-container img {
+max-width: 100%;
+height: auto; 
+}
+
